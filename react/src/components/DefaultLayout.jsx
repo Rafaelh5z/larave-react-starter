@@ -6,7 +6,7 @@ import axiosClient from "../axios-client"
 
 export default function DefaultLayout() {
 
-    const { user, token, setUser, setToken } = useStateContext()
+    const { user, token, setUser, setToken, notification } = useStateContext()
 
     if (!token) {
         
@@ -67,6 +67,15 @@ export default function DefaultLayout() {
                     <Outlet />
                 </main>
             </div>
+
+            
+            { 
+                notification && (
+                    <div className="notification animated fadeInDown">
+                        { notification }
+                    </div>
+                )
+            }
         </div>
     )
 }
